@@ -4,6 +4,12 @@ import { VentasComponent } from './ventas/ventas.component';
 
 export const routes: Routes = [
     {
+        path:'',
+        redirectTo:'inicio',
+        pathMatch:'full'
+
+    },
+    {
         path:'inicio',
         component:InicioComponent
     },
