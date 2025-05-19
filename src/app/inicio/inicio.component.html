@@ -1,19 +1,26 @@
 <h2>Productos disponibles:</h2>
 
-<div class="card-container">
-  @for (item of productos; track item){
-  <mat-card appearance="outlined">
-    <img src="{{item.imagen}}">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+  @for (item of productos; track item) {
+  <mat-card appearance="outlined" class="flex flex-col">
+    <img
+      [src]="item.imagen"
+      alt="{{ item.nombre }}"
+      class="w-full h-48 object-cover rounded-t-md"
+    />
     <mat-card-content>
-      <p class="text1">{{item.nombre}}</p>
-      <p>Precio: S/ {{item.precio}}</p>
-      <p>Stock: {{item.stock}}</p>
-      <p class="producto-descripcion">Descripcion: {{item.descripcion}}</p>
+      <p class="text-lg font-semibold">{{ item.nombre }}</p>
+      <p class="text-sm text-gray-700">Precio: S/ {{ item.precio }}</p>
+      <p class="text-sm text-gray-700">Stock: {{ item.stock }}</p>
+      <p class="text-sm text-gray-500 mt-2">
+        Descripción: {{ item.descripcion }}
+      </p>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-flat-button style="margin-right: 10px;">Agregar producto</button>
+    <mat-card-actions class="mt-auto">
+      <button mat-flat-button color="primary" class="w-full">
+        Agregar producto
+      </button>
     </mat-card-actions>
   </mat-card>
   }
 </div>
-
