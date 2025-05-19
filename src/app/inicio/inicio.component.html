@@ -1,14 +1,14 @@
 <h2>Productos disponibles:</h2>
 
 <div class="card-container">
-  @for (item of productos; track item.id){
+  @for (item of productos; track item){
   <mat-card appearance="outlined">
-    <img src="{{item.imageUrl}}">
+    <img src="{{item.imagen}}">
     <mat-card-content>
-      <p class="text1">{{item.name}}</p>
-      <p>Precio: S/ {{item.price}}</p>
+      <p class="text1">{{item.nombre}}</p>
+      <p>Precio: S/ {{item.precio}}</p>
       <p>Stock: {{item.stock}}</p>
-      <p class="producto-descripcion">Descripcion: {{item.description}}</p>
+      <p class="producto-descripcion">Descripcion: {{item.descripcion}}</p>
     </mat-card-content>
     <mat-card-actions>
         <button mat-flat-button style="margin-right: 10px;">Agregar producto</button>
