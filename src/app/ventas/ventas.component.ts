@@ -1,30 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProductosSeleccionadosService } from '../service/venta.service';
+import { Producto } from '../core/producto';
 import { MatButtonModule } from '@angular/material/button';
-import { VentasService } from '../service/venta.service';
-
-export type Ventas = {
-  id:number,
-  name:string,
-  description:string,
-  price:number,
-  cantidad:number,
-  total:number
-}
 
 @Component({
-  selector: 'app-ventas',
-  imports: [MatButtonModule],
+  imports:[CommonModule,MatButtonModule],
+  selector: 'app-tabla-productos',
   templateUrl: './ventas.component.html',
   styleUrl: './ventas.component.scss'
 })
-export class VentasComponent implements OnInit{
+export class VentasComponent implements OnInit {
+  productos: Producto[] = [];
 
-  ventas?: Ventas[];
+  constructor(private seleccionadosService: ProductosSeleccionadosService) {}
 
-  constructor(private readonly VentasService:VentasService){}
+  ngOnInit() {
+    this.productos = this.seleccionadosService.obtenerProductos();
+  }
 
-  async ngOnInit(){
-    console.log('...ngOnInit');
-    this.ventas = await this.VentasService.getVentas();
+  descartarProducto(producto: Producto) {
+    this.seleccionadosService.eliminarProducto(producto);
+    this.productos = this.seleccionadosService.obtenerProductos(); // actualizar la vista
   }
 }

@@ -1,3 +1,19 @@
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+
+  img {
+    max-height: 80px;
+    object-fit: cover;
+  }
+}
+
 *{
   font-family: "Open Sans", sans-serif;
 }
@@ -33,14 +49,4 @@
 
 .table td.acciones {
   text-align: center;
-}
-
-.boton-venta {
-  width: 80%;
-  margin: 0 auto;
-  text-align: right;
-  margin-top: 10px;
-  position: relative;
-  top: 45px;
-  right: 20px;
 }

@@ -1,36 +1,30 @@
-<div style="display: flex; justify-content: space-between;">
-    <h2 class="title">Seccion de ventas:</h2>
-</div>
+<h2>Productos seleccionados: </h2>
 
-<div class="table">
-  <table>
-      <thead>
-          <th>ID</th>
-          <th>Nombre del producto</th>
-          <th>Descripcion</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Monto total</th>
-          <th>Acciones</th>
-      </thead>
-      <tbody>
-        @for(item of ventas; track item.id){
-          <tr>
-              <td>{{item.id}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.description}}</td>
-              <td>S/ {{item.price}}</td>
-              <td>{{item.cantidad}}</td>
-              <td>S/ {{item.total}}</td>
-              <td class="acciones">
-                  <button style="background: red; color: white;" mat-flat-button>Descartar</button>
-              </td>
-          </tr>
-          }
-      </tbody>
-  </table>
-</div>
-
-<div class="boton-venta">
-    <button mat-flat-button>Realizar compra</button>
-</div>
+<table class="tabla-productos">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Descripción</th>
+      <th>Imagen</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <td>{{ producto.nombre }}</td>
+      <td>S/ {{ producto.precio }}</td>
+      <td>{{ producto.stock }}</td>
+      <td>{{ producto.descripcion }}</td>
+      <td>
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}" width="80" />
+      </td>
+      <td>
+        <button mat-flat-button style="background: red; color: white;" (click)="descartarProducto(producto)">
+  Descartar
+</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
