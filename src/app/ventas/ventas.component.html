@@ -14,29 +14,19 @@
           <th>Acciones</th>
       </thead>
       <tbody>
+        @for(item of ventas; track item.id){
           <tr>
-              <td>1</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.description}}</td>
+              <td>S/ {{item.price}}</td>
+              <td>{{item.cantidad}}</td>
+              <td>S/ {{item.total}}</td>
               <td class="acciones">
                   <button style="background: red; color: white;" mat-flat-button>Descartar</button>
               </td>
           </tr>
-
-          <tr>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="acciones">
-                <button style="background: red; color: white;" mat-flat-button>Descartar</button>
-              </td>
-          </tr>
+          }
       </tbody>
   </table>
 </div>
