@@ -23,4 +23,8 @@ export class VentasComponent implements OnInit {
     this.seleccionadosService.eliminarProducto(producto);
     this.productos = this.seleccionadosService.obtenerProductos(); // actualizar la vista
   }
+
+  calcularTotal(): number {
+  return this.productos.reduce((total, producto) => total + producto.precio, 0);
+}
 }
